@@ -68,3 +68,32 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### HCL Healthcare react app
+
+## Pages
+ - Home
+ - Static pages
+ - Login
+ - Register
+ - Dashboard
+
+## Components
+ - Button
+ - Navigation
+ - Header
+ - Footer
+ - Announcements
+ - Events
+
+## Utility
+ # Layouts
+  - Dashboard
+  - Homepage
+
+## Tools
+ - Bootstrap
+ - React router dom
+ - Okta
+ - JSON Server
