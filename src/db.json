@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "ecad",
+      "email": "test@test.com",
+      "password": "1234",
+      "role": "patient"
+    },
+    {
+      "id": "c172",
+      "email": "test2@gmail.com",
+      "password": "1234",
+      "role": "doctor"
+    },
+    {
+      "id": "82fd",
+      "email": "doctor@gmail.com",
+      "password": "1234",
+      "role": "doctor"
+    },
+    {
+      "id": "da94",
+      "email": "patient@gmail.com",
+      "password": "1234",
+      "role": "patient"
+    }
+  ]
+}
