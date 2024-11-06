@@ -10,6 +10,7 @@ import Patient from "./routes/patient/Patient";
 import Logout from "./components/logout/Logout";
 import PrivateRoute from "./routes/privateRoute/PrivateRoute";
 import PatientLists from "./routes/patientLists/PatientLists";
+import Profile from "./routes/profile/Profile";
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
             }
           ></Route>
           <Route
+            path="/dashboard/patient-list"
+            element={
+              <PrivateRoute allowedRole="doctor">
+                <PatientLists />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="patient"
             element={
               <PrivateRoute allowedRole="patient">
@@ -38,13 +47,22 @@ function App() {
             }
           ></Route>
           <Route
+            path="/dashboard/patient/profile"
+            element={
+              <PrivateRoute allowedRole="patient">
+                <Profile />
+              </PrivateRoute>
+            }
+          ></Route>
+          <Route
             path="/dashboard/patient-list"
             element={
-              <PrivateRoute allowedRole="doctor">
+              <PrivateRoute allowedRole="patient">
                 <PatientLists />
               </PrivateRoute>
             }
           />
+          {/* <Route path="profile" element={<Profile />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

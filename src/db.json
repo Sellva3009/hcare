@@ -1,28 +1,18 @@
 {
   "users": [
     {
-      "id": "ecad",
-      "email": "test@test.com",
-      "password": "1234",
-      "role": "patient"
-    },
-    {
-      "id": "c172",
-      "email": "test2@gmail.com",
-      "password": "1234",
+      "id": "de21",
+      "username": "Ramesh",
+      "email": "ramesh.dr@gmail.com",
+      "password": "$2a$10$lUkSRK5NSJozx0uhmNqAoO8kLGObeLu5L/NHnZNEGJNrwssIP59ge",
       "role": "doctor"
     },
     {
-      "id": "82fd",
-      "email": "doctor@gmail.com",
-      "password": "1234",
+      "id": "3f1a",
+      "username": "Guru",
+      "email": "guru@gmail.com",
+      "password": "$2a$10$Vxq7Zd9stpFZlp.Jgpagy.jWMIesYdA7nL2envDx9egkKPeciKkre",
       "role": "doctor"
-    },
-    {
-      "id": "da94",
-      "email": "patient@gmail.com",
-      "password": "1234",
-      "role": "patient"
     }
   ]
 }

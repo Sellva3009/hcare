@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PatientAppointment from "../../components/appointments/PatientAppointment";
 import HealthReminder from "../../components/healthReminder/HealthReminder";
 import HealthTip from "../../components/healthTip/HealthTip";
 import Button from "../../components/button/Button";
+import logo from '../../logo.svg'
 
 const Patient = () => {
   const navigate = useNavigate();
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -18,11 +21,19 @@ const Patient = () => {
   return (
     <div className="py-4 px-4">
       <div className="user-profile d-flex justify-content-between align-items-center">
-        <h1 className="mb-4">Welcome John</h1>
-        <div className="profile">
-          <img src="../../../public/logo192.png" alt="user" style={{width: '30px', height: '30px'}} />
-          <span>John Doe</span>
-        </div>
+        <h1 className="mb-4">Welcome {user.username}</h1>
+        <Link
+          to="profile"
+          className="profile d-flex justify-content-between align-items-center gap-2 text-decoration-none" 
+        >
+          <img
+            src={logo}
+            alt="user"
+            style={{ width: "35px", height: "35px" }}
+            className="border rounded-circle"
+          />
+          <span>{user.username}</span>
+        </Link>
       </div>
       <PatientAppointment />
       <HealthReminder />

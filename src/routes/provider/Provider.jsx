@@ -5,6 +5,7 @@ import RecentPatient from "../../components/recentPatient/RecentPatient";
 
 const Provider = () => {
   const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -15,7 +16,7 @@ const Provider = () => {
 
   return (
     <div className="py-4 px-4">
-      <h1 className="mb-4">Welcome, Dr. Smith</h1>
+      <h1 className="mb-4">Welcome, Dr. {user.username}</h1>
       <DoctorAppointment />
       <RecentPatient />
     </div>

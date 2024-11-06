@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import bcrypt from "bcryptjs";
 
 const Register = () => {
   const [formData, setFormData] = useState({
+    username: '',
     email: '',
     password: '',
     role: 'patient'
@@ -21,7 +23,15 @@ const Register = () => {
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
     try {
-      await axios.post("http://localhost:3000/users", formData);
+      // hash the password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(formData.password, salt);
+
+      const newUser = {
+        ...formData,
+        password: hashedPassword
+      }
+      await axios.post("http://localhost:3000/users", newUser);
       alert('Registration successful! Please log in.');
       navigate("/login");
     } catch (err) {
@@ -38,6 +48,19 @@ const Register = () => {
       <div className="form-wrap w-25 bg-white p-4 rounded shadow">
         <h3 className="text-center mb-3 fw-bold">Register</h3>
         <form onSubmit={(e) => handleSubmit(e)}>
+          <div className="row mb-3">
+            <div>
+              <input
+                type="text"
+                className="form-control"
+                id="username"
+                placeholder="Username"
+                value={formData.username}
+                name="username"
+                onChange={(e) => handleChange(e)}
+              />
+            </div>
+          </div>
           <div className="row mb-3">
             <div>
               <input
@@ -72,8 +95,10 @@ const Register = () => {
                 name="role"
                 onChange={(e) => handleChange(e)}
               >
-                <option selected>Open this select menu</option>
-                <option value="patient">Patient</option>
+                <option>Open this select menu</option>
+                <option selected value="patient">
+                  Patient
+                </option>
                 <option value="doctor">Doctor</option>
               </select>
             </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import bcrypt from "bcryptjs";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -22,17 +23,23 @@ const Login = () => {
     try {
       const response = await axios.get("http://localhost:3000/users", {
         params: {
-          email: formData.email,
-          password: formData.password
+          email: formData.email
         }
       });
       const user = response.data[0];
       if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
-        if (user.role === "doctor") {
-          navigate('/dashboard/provider');
+        // compare hashed password
+        const passwordMatch = await bcrypt.compare(formData.password, user.password);
+
+        if (passwordMatch) {
+          localStorage.setItem("user", JSON.stringify(user));
+          if (user.role === "doctor") {
+            navigate("/dashboard/provider");
+          } else {
+            navigate("/dashboard/patient");
+          }
         } else {
-          navigate('/dashboard/patient');
+          alert('Invalid credentials');
         }
       } else {
         alert('Invalid Credentials');
