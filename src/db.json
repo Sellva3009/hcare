@@ -13,6 +13,13 @@
       "email": "guru@gmail.com",
       "password": "$2a$10$Vxq7Zd9stpFZlp.Jgpagy.jWMIesYdA7nL2envDx9egkKPeciKkre",
       "role": "doctor"
+    },
+    {
+      "id": "acb6",
+      "username": "Dravid-updated",
+      "email": "dravid@gmail.com",
+      "password": "$2a$10$1SnNs/gmlNcqoza/RGXmWunoAUfVj0XnQ/7xdgHEsn6t00TrQpKQi",
+      "role": "patient"
     }
   ]
 }
