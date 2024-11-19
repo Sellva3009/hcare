@@ -22,6 +22,7 @@ const HomePage = () => {
           <div className="featuredCardWrapper d-flex flex-wrap gap-4 flex-column flex-md-row">
             {cardDetails.map((card) => (
               <Cards
+                key={card.title}
                 cardTitle={card.title}
                 cardDesc={card.desc}
                 cardLink={card.link}
@@ -38,6 +39,7 @@ const HomePage = () => {
           <div className="healthNewsWrapper d-flex flex-column gap-4">
             {healthNews.map((healthNewslist) => (
               <Cards
+                key={healthNewslist.title}
                 cardTitle={healthNewslist.title}
                 cardDesc={healthNewslist.desc}
                 cardLink={healthNewslist.link}

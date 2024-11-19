@@ -90,7 +90,7 @@ const Register = () => {
           <div className="row mb-3">
             <div>
               <select
-                class="form-select"
+                className="form-select"
                 aria-label="selecting role"
                 name="role"
                 onChange={(e) => handleChange(e)}

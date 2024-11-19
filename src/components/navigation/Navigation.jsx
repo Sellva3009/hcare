@@ -4,13 +4,13 @@ import { navLists } from "../../lib/dummyData";
 
 const Navigation = () => {
   return (
-    <nav class="navbar navbar-expand-sm bg-body-tertiary">
-      <div class="container-fluid">
-        <Link class="navbar-brand d-sm-none" to="#">
+    <nav className="navbar navbar-expand-sm bg-body-tertiary">
+      <div className="container-fluid">
+        <Link className="navbar-brand d-sm-none" to="#">
           Menu
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -18,14 +18,17 @@ const Navigation = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse d-sm-flex justify-content-center" id="navbarNav">
-          <ul class="navbar-nav">
+        <div
+          className="collapse navbar-collapse d-sm-flex justify-content-center"
+          id="navbarNav"
+        >
+          <ul className="navbar-nav">
             {navLists.map((navList) => (
-              <li class="nav-item">
+              <li className="nav-item" key={navList.id}>
                 <Link
-                  class="nav-link active"
+                  className="nav-link active"
                   aria-current="page"
                   to={navList.link}
                 >
